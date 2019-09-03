@@ -1,0 +1,78 @@
+
+boolean k = false;
+boolean start = false;
+
+String file;
+
+PFont sourceLight;
+
+
+float r1 = 100;
+float r2 = 100;
+float m1 = 30;
+float m2 = 30;
+float a1 = PI/2;
+float a2 = PI/2;
+float a1_v = 0;
+float a2_v = 0;
+float g = random(1,3);
+
+PImage img;
+PImage first; 
+
+void setup() {
+  //background(255);
+  first = loadImage("first.jpg");
+  size(1000, 700);
+  image(first, 0, 0);
+ // sourceLight = createFont("SourceCodePro-Light.otf", 34);
+ // textFont(sourceLight);
+  fill(0);
+  
+
+
+  file = "/Users/paulinaaviles/Downloads/oh/good.jpg";
+  //img = loadImage(file);
+  //image(img,0,0, width,height); 
+   
+}
+
+void draw() {   
+   
+    imageMode(CORNER);
+    if (start == true){
+     PenHor();
+     PenVer();
+    }
+   
+}
+
+void keyPressed(){
+  if (key == 's' || key == 'S'){
+    saveFrame("Poster_####.png");
+  }
+}
+
+void mouseReleased(){
+    imageMode(CORNER);
+    
+    pushMatrix();
+   //translate(-width/2, -height/2);
+    img = loadImage(file);
+    image(img,0,0, width,height);
+    popMatrix();
+    
+    start = true;
+    
+       r1 = 100;
+       r2 = 100;
+       m1 = 30;
+       m2 = 30;
+       a1 = PI/2;
+       a2 = PI/2;
+       a1_v = 0;
+       a2_v = 0;
+      g = random(1-3);
+     PenHor();
+     PenVer();    
+}
